@@ -22,10 +22,11 @@ df.set_index('ts', inplace=True)
 for c in range(cols):
     for r in range(rows):
         id_to_plot = ids[c + cols*r]
-        
-        df['tr_u'].plot(ax=ax[r, c])
-        df['tr_i'].plot(ax=ax[r, c])
-    
-    
+
+        df['tr_u'][df['S_DeviceID']==id_to_plot].plot(ax=ax[r, c])
+        df['tr_i'][df['S_DeviceID']==id_to_plot].plot(ax=ax[r, c])
+
+
 plt.tight_layout()
 plt.show()
+
